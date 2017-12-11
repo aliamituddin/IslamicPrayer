@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="android.learn.solat.MainActivity"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/day"
+                android:scaleType="centerCrop"
+                />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="70dp">
+            <TextView
+                android:id="@+id/tvJadwalTujuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wait for data"
+                android:textColor="#ffffff"
+                android:textSize="40sp"
+                android:layout_centerHorizontal="true"
+                tools:text="Zuhur" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="90dp"
+                android:layout_marginRight="90dp">
+                <TextView
+                    android:id="@+id/tvJam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="-"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    tools:text="4 Jam"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tvMenit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:layout_weight="1"
+                    android:text="-"
+                    android:gravity="center"
+                    android:fontFamily="@font/roboto"
+                    tools:text="4 Menit"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/tvDetik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="-"
+                    android:fontFamily="@font/roboto"
+                    tools:text="4 Detik"
+                    android:textSize="15sp"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="40dp">
+            <TextView
+                android:id="@+id/tvKota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wait for location data"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                tools:text="Kota" />
+            <TextView
+                android:id="@+id/tvTanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="wait for date"
+                android:fontFamily="@font/roboto"
+                android:layout_below="@id/tvKota"
+                tools:text="Tanggal"
+                android:textSize="15sp"
+                android:layout_marginBottom="15sp"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingTop="20dp"
+        android:paddingRight="40dp"
+        >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="Subuh" />
+
+        <TextView
+            android:id="@+id/tvSubuh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="15sp"
+            tools:text="04:40 AM"/>
+        <ImageView
+            android:id="@+id/btSubuh"
+            android:layout_gravity="right"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:src="@drawable/notif_on"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="Zuhur" />
+
+        <TextView
+            android:id="@+id/tvZuhur"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:gravity="right"
+            tools:text="11:49 AM"/>
+
+        <ImageView
+            android:id="@+id/btZuhur"
+            android:layout_gravity="right"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:src="@drawable/notif_off"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center">
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ashar" />
+
+        <TextView
+            android:textSize="15sp"
+            android:id="@+id/tvAshar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            tools:text="14:48 PM"/>
+        <ImageView
+            android:id="@+id/btAshar"
+            android:layout_gravity="right"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:src="@drawable/notif_off"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center">
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Maghrib" />
+
+        <TextView
+            android:textSize="15sp"
+            android:id="@+id/tvMagrhib"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right" 
+            tools:text="17:33 PM"/>
+        <ImageView
+            android:id="@+id/btMaghrib"
+            android:layout_gravity="right"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:src="@drawable/notif_on"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:gravity="center">
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Isya" />
+
+        <TextView
+            android:textSize="15sp"
+            android:id="@+id/tvIsya"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            tools:text="18:49 PM"/>
+        <ImageView
+            android:id="@+id/btIsya"
+            android:layout_gravity="right"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:src="@drawable/notif_off"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
