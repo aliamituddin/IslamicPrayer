@@ -1,4 +1,4 @@
 # IslamicPrayer
 FInalProject Mobile Apps Programming
 
-Siapapun, Tolong bantuin cari bug nya :"
+- Fixed Bug Fragment Asmaul Husna
