@@ -57,11 +57,17 @@ public class FragmenAsmaulHusna extends Fragment {
         rv_asmaulHusna.setLayoutManager(mLayoutManager);
 
         rv_asmaulHusna.setAdapter(adapter);
-        Uri uri  = NetworkUtils.buildAsmaulHusna();
-        new NetworkTask().execute(uri);
         return view;
     }
-    private ArrayList<String > getNo(String json){
+
+    @Override
+    public void onStart() {
+        Uri uri  = NetworkUtils.buildAsmaulHusna();
+        new NetworkTask().execute(uri);
+        super.onStart();
+    }
+
+    private ArrayList<String> getNo(String json){
         ArrayList<String> hasil = new ArrayList<>();
         try {
             JSONObject dataJson = new JSONObject(json);

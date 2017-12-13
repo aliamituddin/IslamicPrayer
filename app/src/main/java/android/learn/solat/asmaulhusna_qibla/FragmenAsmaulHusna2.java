@@ -60,6 +60,14 @@ public class FragmenAsmaulHusna2 extends Fragment {
         rv_asmaulHusna.setAdapter(adapter);
         return view;
     }
+
+    @Override
+    public void onStart() {
+        Uri uri  = NetworkUtils.buildAsmaulHusna();
+        new NetworkTask().execute(uri);
+        super.onStart();
+    }
+
     private ArrayList<String > getNo(String json){
         ArrayList<String> hasil = new ArrayList<>();
         try {

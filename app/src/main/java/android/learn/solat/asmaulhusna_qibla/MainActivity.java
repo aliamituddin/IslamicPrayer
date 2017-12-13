@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         asmaul_husna = (CardView)findViewById(R.id.card_view_asmaul_husna);
         asmaul_husna.setOnClickListener(this);
         arah_kiblat.setOnClickListener(this);
-        this.fa = new FragmenAsmaulHusna();
 
 
 //        Uri uri  = NetworkUtils.buildAsmaulHusna();

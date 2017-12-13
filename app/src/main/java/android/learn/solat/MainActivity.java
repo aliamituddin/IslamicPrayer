@@ -3,10 +3,12 @@ package android.learn.solat;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.learn.solat.model.Items;
 import android.learn.solat.model.Jadwal;
 import android.learn.solat.Network.ApiClient;
 import android.learn.solat.Network.ApiInterface;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvDetik;
     private TextView tvJadwalTujuan;
     private NotificationManager notificationManager;
+    private String fileName = "learn.android.Solat.sharedPref";
+    private SharedPreferences sharedPreferences;
+    CountDownTask cdTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         getSupportActionBar().setElevation(0);
         this.notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-        kota = "Malang";
-        idKota = "142";
+        this.sharedPreferences = this.getSharedPreferences(this.fileName, Context.MODE_PRIVATE);
+        kota = this.sharedPreferences.getString("kota","Malang");
+        idKota = this.sharedPreferences.getString("id","142");
         //ambil format tanggal dan bulan saat ini;
             Calendar c = Calendar.getInstance();
             System.out.println("Current time => " + c.getTime());
@@ -93,26 +99,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+//        try{// ngambil data dari api lalu menampilkannya
+//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+//        Call<Items> call = apiService.getJadwalSholat(idKota, date[1],date[2]);
+//
+//        call.enqueue(new Callback<Items>() {
+//            @Override
+//            public void onResponse(Call<Items> call, Response<Items> response) {
+//                List<Jadwal> jadwal = response.body().getItems();
+//                loadData(jadwal);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Items> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+//            }
+//        });
+//        }
+//        catch(Exception e){}
+    }
+
+
+    @Override
+    protected void onStart() {
+        tvSubuh.setText("");
+        tvZuhur.setText("");
+        tvAshar.setText("");
+        tvMaghrib.setText("");
+        tvIsya.setText("");
+        tvKota.setText("Waiting Data");
+        tvJadwalTujuan.setText("Waiting Data");
+        tvJam.setText("--");
+        tvDetik.setText("--");
+        tvMenit.setText("--");
+        tvTanggal.setText(formattedDate);
+        kota = this.sharedPreferences.getString("kota","Malang");
+        idKota = this.sharedPreferences.getString("id","142");
+        if(cdTask== null){
+
+        }else{
+            cdTask.cancel(true);
+        }
         try{// ngambil data dari api lalu menampilkannya
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<Items> call = apiService.getJadwalSholat(idKota, date[1],date[2]);
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            Call<Items> call = apiService.getJadwalSholat(idKota, date[1],date[2]);
 
-        call.enqueue(new Callback<Items>() {
-            @Override
-            public void onResponse(Call<Items> call, Response<Items> response) {
-                List<Jadwal> jadwal = response.body().getItems();
-                loadData(jadwal);
-            }
+            call.enqueue(new Callback<Items>() {
+                @Override
+                public void onResponse(Call<Items> call, Response<Items> response) {
+                    List<Jadwal> jadwal = response.body().getItems();
+                    loadData(jadwal);
+                }
 
-            @Override
-            public void onFailure(Call<Items> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<Items> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                }
+            });
         }
         catch(Exception e){}
+        super.onStart();
     }
-    CountDownTask cdTask;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

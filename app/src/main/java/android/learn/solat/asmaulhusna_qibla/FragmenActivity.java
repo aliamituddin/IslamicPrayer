@@ -39,6 +39,8 @@ public class FragmenActivity extends AppCompatActivity implements View.OnClickLi
 
 
     }
+
+
     private int getMatColor(String typeColor)
     {
         int returnColor = Color.BLACK;

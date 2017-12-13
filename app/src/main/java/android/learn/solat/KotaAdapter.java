@@ -3,6 +3,7 @@ package android.learn.solat;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.learn.solat.model.Kota;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 public class KotaAdapter extends RecyclerView.Adapter<KotaAdapter.RowHolder> {
     private ArrayList<Kota> listKota;
     private LayoutInflater inflater;
+    SharedPreferences pref;
+    private String fileName = "learn.android.Solat.sharedPref";
     Context context;
 
     public KotaAdapter(Context context, ArrayList<Kota> listKota) {
@@ -42,7 +45,7 @@ public class KotaAdapter extends RecyclerView.Adapter<KotaAdapter.RowHolder> {
     @Override
     public void onBindViewHolder(KotaAdapter.RowHolder holder, int position) {
 
-        Kota k = this.listKota.get(position);
+        final Kota k = this.listKota.get(position);
 
         // mapping
         holder.tvNama.setText(k.getNama_kota());
@@ -54,6 +57,11 @@ public class KotaAdapter extends RecyclerView.Adapter<KotaAdapter.RowHolder> {
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pref = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+                pref.edit()
+                        .putString("id", k.getId())
+                        .putString("kota", k.getNama_kota())
+                        .apply();
                 ((PilihKota)context).onBackPressed();
 
             }

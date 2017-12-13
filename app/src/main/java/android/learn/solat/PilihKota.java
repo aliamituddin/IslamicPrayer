@@ -66,7 +66,7 @@ public class PilihKota extends AppCompatActivity {
     {
         switch(item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                navigateUpTo(getIntent());
                 return true;
             default:
                 return false;
