@@ -39,8 +39,6 @@ public class FragmenAsmaulHusna2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         this.view = (View) inflater.inflate(R.layout.activity_main2,container,false);
-        Uri uri  = NetworkUtils.buildAsmaulHusna();
-        new NetworkTask().execute(uri);
 
         rv_asmaulHusna = (RecyclerView)view.findViewById(R.id.rv_asmaulhusna);
         // use this setting to improve performance if you know that changes

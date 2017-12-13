@@ -5,12 +5,12 @@
         android:id="@+id/btnPilihKota"
         android:title=""
         app:showAsAction="always"
-        android:icon="@drawable/kompas">
+        android:icon="@mipmap/list_kota">
     </item>
     <item
         android:id="@+id/btnKiblat"
         android:title=""
         app:showAsAction="always"
-        android:icon="@drawable/kompas">
+        android:icon="@mipmap/list_menu">
     </item>
 </menu>

@@ -5,6 +5,9 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.learn.solat.model.Jadwal;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.service.notification.StatusBarNotification;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Switch;
@@ -119,21 +122,28 @@ public class CountDownTask extends AsyncTask<Void, Long, Void> {
                 tvJadwalTujuan.setText(status);
                 break;
         }
-
-
         if(values[0]>0) {
             tvJam.setText(((values[0] / 3600000)) + " Jam");
             tvMenit.setText(((values[0]-((values[0] / 3600000)*3600000)) /60000) + " Menit");
             tvDetik.setText(values[1] + " Detik");
-        }else{
-            tvJam.setText("");
+        }else if(values[0]==0){
+            switch(this.status){
+                case "Subuh": setNotif(this.status,d1[0]+":"+d1[1]);
+                break;
+                case "Zuhur": setNotif(this.status,d2[0]+":"+d2[1]);
+                break;
+                case "Ashar": setNotif(this.status,d3[0]+":"+d3[1]);
+                break;
+                case "Maghrib": setNotif(this.status,d4[0]+":"+d4[1]);
+                    break;
+                case "Isya": setNotif(this.status,d5[0]+":"+d5[1]);
+                    break;
+            }
             tvMenit.setText("Saat Ini "+this.status);
-            setNotif(status,d1[0]+":"+d1[1]);
-            tvDetik.setText("");
         }
     }
 
-    protected void setNotif(String status,String jamStatus){
+    protected void setNotif(String status, String jamStatus){
         this.myNotification = new NotificationCompat.Builder(context)
                 .setContentTitle("Waktu "+status+" Telah Tiba")
                 .setContentText(jamStatus)
@@ -143,6 +153,5 @@ public class CountDownTask extends AsyncTask<Void, Long, Void> {
                 .build();
 
         this.notificationManager.notify(11,this.myNotification);
-
     }
 }

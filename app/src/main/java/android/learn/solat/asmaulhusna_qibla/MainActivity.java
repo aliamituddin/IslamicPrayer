@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<String> name,meaning,transliteration;
     AsmaulHusnaAdapter adapter;
     private RecyclerView rv_asmaulHusna;
-    private CardView arah_kiblat,asmaul_husna;
+    private CardView arah_kiblat,asmaul_husna,doa_doa;
     FragmenAsmaulHusna fa;
 
 
@@ -25,8 +25,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.menu);
         arah_kiblat = (CardView)findViewById(R.id.card_view_arah_kiblat);
         asmaul_husna = (CardView)findViewById(R.id.card_view_asmaul_husna);
+        doa_doa = (CardView)findViewById(R.id.card_view_doa_doa);
         asmaul_husna.setOnClickListener(this);
         arah_kiblat.setOnClickListener(this);
+        doa_doa.setOnClickListener(this);
 
 
 //        Uri uri  = NetworkUtils.buildAsmaulHusna();
@@ -59,7 +61,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.card_view_asmaul_husna:
                 Intent intent1 = new Intent(this,FragmenActivity.class);
                 startActivity(intent1);
-               break;
+                break;
+            case R.id.card_view_doa_doa:
+                Intent intent2 = new Intent(this, android.learn.solat.doa_doa.MainActivity.class);
+                startActivity(intent2);
+                break;
 
         }
     }
