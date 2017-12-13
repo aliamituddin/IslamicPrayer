@@ -62,6 +62,7 @@ public class FragmenActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.btn_2:
                 fm.beginTransaction().replace(R.id.linear_fragment,fa2).commit();
+
                 break;
         }
 

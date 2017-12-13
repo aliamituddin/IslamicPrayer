@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnLoadData;
     String formattedDate;
     String []date;
-    android.support.v7.widget.Toolbar toolbar;
     String kota,idKota;
     ImageView btSubuh,btZuhur,btAshar,btMaghrib,btIsya;
     boolean nfSubuh=false;
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        // ngambil data dari api lalu menampilkannya
+        try{// ngambil data dari api lalu menampilkannya
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Items> call = apiService.getJadwalSholat(idKota, date[1],date[2]);
 
@@ -110,6 +109,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+        }
+        catch(Exception e){}
     }
     CountDownTask cdTask;
 
@@ -126,6 +127,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent i = new Intent(this, android.learn.solat.asmaulhusna_qibla.MainActivity.class);
                 startActivity(i);
                 break;
+            case R.id.btnPilihKota:
+                Intent a = new Intent(this, PilihKota.class);
+                startActivity(a);
 
         }
         return super.onOptionsItemSelected(item);

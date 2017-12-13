@@ -2,10 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/btnPilihKota"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/kompas">
+    </item>
+    <item
         android:id="@+id/btnKiblat"
         android:title=""
         app:showAsAction="always"
         android:icon="@drawable/kompas">
-
     </item>
 </menu>
