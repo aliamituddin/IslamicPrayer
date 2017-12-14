@@ -33,17 +33,11 @@ public class MainActivity extends AppCompatActivity {
     TextView tvMaghrib;
     TextView tvIsya;
     TextView tvKota,tvTanggal;
-    Button btnLoadData;
     String formattedDate;
     String []date;
     String kota,idKota;
-    boolean nfSubuh=false;
-    boolean nfZuhur=false;
-    boolean nfAshar=false;
-    boolean nfMaghrib=false;
-    boolean nfIsya=false;
     ImageView ivBackground;
-    Jadwal besok,today;
+    Jadwal today;
     private TextView tvJam;
     private TextView tvMenit;
     private TextView tvDetik;
@@ -95,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
+        super.onStart();
         tvSubuh.setText("");
         tvZuhur.setText("");
         tvAshar.setText("");
@@ -125,12 +121,13 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Items> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),t.getMessage()+"Cek Koneksi Anda, Buka Ulang Aplikasi",Toast.LENGTH_LONG).show();
                 }
             });
         }
-        catch(Exception e){}
-        super.onStart();
+        catch(Exception e){
+            Toast.makeText(this,"Cek Koneksi Anda, Buka Ulang Aplikasi",Toast.LENGTH_LONG);
+        }
     }
 
     @Override
@@ -168,9 +165,7 @@ public class MainActivity extends AppCompatActivity {
             today = data;
             cdTask = new CountDownTask(this.tvJadwalTujuan,this.tvJam,this.tvMenit,this.tvDetik,today,getApplicationContext());
             cdTask.execute();
-        }else if (data.getTanggal()==(date[0])+1) {
-                besok = data;
-            }
+        }
         }
     }
 

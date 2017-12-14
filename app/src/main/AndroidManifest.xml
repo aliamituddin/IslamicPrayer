@@ -11,13 +11,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_islam_prayer"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon_islam_prayer"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-            android:label="Jadwal Solat">
+            android:label="IslamPrayer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,6 +47,10 @@
 
         <activity android:name=".doa_doa.MainActivity"
             android:label="Kumpulan Doa Doa"
+            android:parentActivityName=".asmaulhusna_qibla.MainActivity"></activity>
+
+        <activity android:name=".kalender.MainActivity"
+            android:label="Kalender"
             android:parentActivityName=".asmaulhusna_qibla.MainActivity"></activity>
 
         <meta-data

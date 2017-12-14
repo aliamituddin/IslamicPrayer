@@ -40,10 +40,10 @@ public class PilihKota extends AppCompatActivity {
 
 
         rvKota = (RecyclerView) this.findViewById(R.id.rvListKota);
-        // buat BookAdapter
+        // buat
         this.kotaAdapter = new KotaAdapter(this, listKota);
 
-        // set BookAdapter sebagai adapter untuk RecyclerView
+        // set adapter sebagai adapter untuk RecyclerView
         this.rvKota.setAdapter(kotaAdapter);
 
         // set layout manager yang mengelola tampilan recyclerView
@@ -51,7 +51,6 @@ public class PilihKota extends AppCompatActivity {
         rvKota.setLayoutManager(new LinearLayoutManager(this));
 
         // ngambil data dari api lalu menampilkannya
-
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ItemKota> call = apiService.getKota();
@@ -61,16 +60,12 @@ public class PilihKota extends AppCompatActivity {
             public void onResponse(Call<ItemKota> call, Response<ItemKota> response) {
                 List<Kota> kota= response.body().getItemKota();
                 loadData(kota);
-
             }
-
             @Override
             public void onFailure(Call<ItemKota> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
-
-
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item)

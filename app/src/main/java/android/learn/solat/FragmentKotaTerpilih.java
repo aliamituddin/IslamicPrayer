@@ -2,7 +2,6 @@ package android.learn.solat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.learn.solat.model.Kota;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
 
 
 public class FragmentKotaTerpilih extends Fragment {

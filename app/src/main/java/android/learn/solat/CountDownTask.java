@@ -5,19 +5,10 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.learn.solat.model.Jadwal;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.service.notification.StatusBarNotification;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Fajri on 05/12/2017.
@@ -29,12 +20,12 @@ public class CountDownTask extends AsyncTask<Void, Long, Void> {
     long nowHour,nowMinute,nowSecond;
     String [] d1,d2,d3,d4,d5;
     long subuh,zuhur,ashar,maghrib,isya,nowmilis,toSubuh,toZuhur,toAshar,toMaghrib,toIsya;
-    String status="",jamStatus="";
+    String status="";
     Context context;
     private Notification myNotification;
 
 
-    public CountDownTask(TextView tvJadwalTujuan, TextView tvJam, TextView tvMenit, TextView tvDetik, Jadwal data, Context context) {
+        public CountDownTask(TextView tvJadwalTujuan, TextView tvJam, TextView tvMenit, TextView tvDetik, Jadwal data, Context context) {
         this.tvJam = tvJam;
         this.tvMenit = tvMenit;
         this.tvDetik = tvDetik;
