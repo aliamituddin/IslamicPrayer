@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    tools:context="android.learn.solat.FragmentKotaTerpilih"
+    android:background="@color/colorPrimary">
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kota saat ini"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        />
+    <TextView
+        android:id="@+id/tvFragKota"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        tools:text="Kota"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        />
+
+    <TextView
+        android:id="@+id/tvFragIdKota"
+        android:layout_toRightOf="@id/tvFragKota"
+        android:layout_below="@id/tv1"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:gravity="right"
+        android:paddingRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        tools:text="Id Kota"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        />
+
+</RelativeLayout>

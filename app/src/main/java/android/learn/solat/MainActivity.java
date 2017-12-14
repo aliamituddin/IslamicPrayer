@@ -8,12 +8,10 @@ import android.learn.solat.model.Items;
 import android.learn.solat.model.Jadwal;
 import android.learn.solat.Network.ApiClient;
 import android.learn.solat.Network.ApiInterface;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -59,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         getSupportActionBar().setElevation(0);
         this.notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         this.sharedPreferences = this.getSharedPreferences(this.fileName, Context.MODE_PRIVATE);
@@ -143,8 +142,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.btnKiblat:
+            case R.id.btnMenu:
                 Intent i = new Intent(this, android.learn.solat.asmaulhusna_qibla.MainActivity.class);
+                if(cdTask!=null){cdTask.cancel(true);}
                 startActivity(i);
                 break;
             case R.id.btnPilihKota:
@@ -177,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        cdTask.cancel(true);
+        if(cdTask!=null){
+            cdTask.cancel(true);
+        }
     }
 }

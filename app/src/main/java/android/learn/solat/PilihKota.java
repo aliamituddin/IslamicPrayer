@@ -1,10 +1,9 @@
 package android.learn.solat;
 
+import android.support.v4.app.FragmentManager;
 import android.learn.solat.Network.ApiClient;
 import android.learn.solat.Network.ApiInterface;
 import android.learn.solat.model.ItemKota;
-import android.learn.solat.model.Items;
-import android.learn.solat.model.Jadwal;
 import android.learn.solat.model.Kota;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,13 +20,25 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PilihKota extends AppCompatActivity {
+
     ArrayList<Kota> listKota = new ArrayList<Kota>();
     KotaAdapter kotaAdapter;
     RecyclerView rvKota;
+    FragmentManager fragMan;
+    FragmentKotaTerpilih fragmentKota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pilih_kota);
+
+        //set Fragment Ke activity
+        fragmentKota = new FragmentKotaTerpilih();
+        this.fragMan = getSupportFragmentManager();
+        fragMan.beginTransaction()
+                .add(R.id.linearKota,fragmentKota)
+                .commit();
+
+
         rvKota = (RecyclerView) this.findViewById(R.id.rvListKota);
         // buat BookAdapter
         this.kotaAdapter = new KotaAdapter(this, listKota);

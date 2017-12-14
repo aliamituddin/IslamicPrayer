@@ -8,7 +8,7 @@
         android:icon="@mipmap/list_kota">
     </item>
     <item
-        android:id="@+id/btnKiblat"
+        android:id="@+id/btnMenu"
         android:title=""
         app:showAsAction="always"
         android:icon="@mipmap/list_menu">

@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="android.learn.solat.PilihKota">
+    <LinearLayout
+        android:id="@+id/linearKota"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvListKota"
         android:layout_width="match_parent"
